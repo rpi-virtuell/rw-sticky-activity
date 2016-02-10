@@ -46,6 +46,7 @@ Answer
 = 0.0.3 =
 * filter buddyboss wall activity url preview
 * added ajax widget refresh
+* filter bp_activity_excerpt_length to show full text in widget
 
 = 0.0.2 =
 * Jquery/CSS Fix. added spinner

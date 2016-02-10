@@ -46,6 +46,7 @@ class RW_Sticky_Activity_Widget extends WP_Widget
                 // deactivate BuddyBoss Wall activity url preview
                 remove_action('bp_get_activity_content_body', 'bb_bp_activity_url_filter');
             }
+            add_filter( 'bp_activity_excerpt_length', function() { return 99999; });
             if ( bp_has_activities( array( 'meta_query' => $meta_query_args) ) ) : ?>
                 <?php while ( bp_activities() ) : bp_the_activity(); ?>
                     <div class="buddypress-sa">
