@@ -1,0 +1,28 @@
+
+.notpinned {
+    color: #cecece;
+    background-color: transparent !important;
+}
+
+.notpinned:hover {
+    color: #cecece;
+    background-color: transparent !important;
+}
+
+
+.pinned {
+    color: #00a6dc !important;
+    background-color: transparent !important;
+}
+
+
+.pinned:hover {
+    color: #00a6dc;
+    background-color: transparent !important;
+}
+
+.sa-button {
+    font-family: FontAwesome !important;
+    width: auto !important;
+    margin-bottom: 10px;
+}
