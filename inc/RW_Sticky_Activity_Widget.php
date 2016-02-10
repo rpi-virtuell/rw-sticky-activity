@@ -34,7 +34,6 @@ class RW_Sticky_Activity_Widget extends WP_Widget
             if ( ! empty( $instance['title'] ) ) {
                 echo $args['before_title'] . apply_filters( 'widget_title', $instance['title'] ). $args['after_title'];
             }
-            //echo __( 'Hello, World!', 'text_domain' );
             $meta_query_args = array(
                 'relation' => 'AND', // Optional, defaults to "AND"
                 array(
@@ -50,14 +49,18 @@ class RW_Sticky_Activity_Widget extends WP_Widget
                         <div id="factivity-stream">
                             <div class="activity-list">
                                 <div class="activity-content" style="margin-left: 0px;">
-                                    <div class="activity-header">
-                                        <?php bp_activity_action(); ?>
-                                    </div>
                                     <?php if ( bp_activity_has_content() ) : ?>
                                         <div class="activity-inner">
                                             <?php bp_activity_content_body(); ?>
                                         </div>
                                     <?php endif; ?>
+                                    <div class="activity-header">
+                                        <?php
+                                        $userid = bp_get_activity_user_id();
+                                        $user = get_user_by( 'id', $userid);
+                                        echo "(" . $user->nickname . ")";
+                                        ?>
+                                    </div>
                                     <?php
                                     $nonce = wp_create_nonce( 'pin-activity-nonce' );
                                     $title = __('Unpin activity', RW_Sticky_Activity::$textdomain);
