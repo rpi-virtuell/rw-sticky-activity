@@ -1,23 +1,23 @@
 
-.notpinned {
+a.notpinned {
     color: #cecece;
     background-color: transparent !important;
 }
 
-.notpinned:hover {
-    color: #cecece;
+a.notpinned:hover {
+    color: #84878b;
     background-color: transparent !important;
 }
 
 
-.pinned {
+a.pinned {
     color: #00a6dc !important;
     background-color: transparent !important;
 }
 
 
-.pinned:hover {
-    color: #00a6dc;
+a.pinned:hover {
+
     background-color: transparent !important;
 }
 
@@ -26,3 +26,6 @@
     width: auto !important;
     margin-bottom: 10px;
 }
+
+
+

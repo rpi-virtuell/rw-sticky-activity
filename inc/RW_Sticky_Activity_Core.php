@@ -24,7 +24,7 @@ class RW_Sticky_Activity_Core {
                     $class = "sa-button-unpin  pinned";
                 }
                 ?>
-                <a href="" class="button fa fa-map-marker  bp-secondary-action <?php echo $class; ?>" title="<?php echo $title; ?>" data-post-nonces="<?php echo $nonce; ?>" data-post-id="<?php echo bp_get_activity_id(); ?>"></a>
+                <a href="" class="fa fa-map-marker <?php echo $class; ?>" title="<?php echo $title; ?>" data-post-nonces="<?php echo $nonce; ?>" data-post-id="<?php echo bp_get_activity_id(); ?>"></a>
                 <?php
           }
         }

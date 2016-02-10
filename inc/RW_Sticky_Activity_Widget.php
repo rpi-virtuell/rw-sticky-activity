@@ -63,7 +63,7 @@ class RW_Sticky_Activity_Widget extends WP_Widget
                                     $title = __('Unpin activity', RW_Sticky_Activity::$textdomain);
                                     $class = "sa-button-unpin  pinned";
                                     ?>
-                                    <a href="" class="fa fa-map-marker button icon-button bp-secondary-action sa-button <?php echo $class; ?>" title="<?php echo $title; ?>" data-post-nonces="<?php echo $nonce; ?>" data-post-id="<?php echo bp_get_activity_id(); ?>"></a>
+                                    <a href="" class="fa fa-map-marker icon-button sa-button <?php echo $class; ?>" title="<?php echo $title; ?>" data-post-nonces="<?php echo $nonce; ?>" data-post-id="<?php echo bp_get_activity_id(); ?>"></a>
                                 </div>
                             </div>
                         </div>

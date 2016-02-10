@@ -8,8 +8,12 @@ jQuery(document).ready(function($) {
             'nonces' : button.attr('data-post-nonces'),
             'id' :button.attr('data-post-id')
          };
+        button.addClass( 'loading');
+
         jQuery.post("/wp-admin/admin-ajax.php", data, function (response) {
-            //alert('Got this from the server: ' + response);
+            button.removeClass('loading');
+            button.removeClass('notpinned');
+            button.addClass('pinned');
         });
         return false;
     });
@@ -22,8 +26,11 @@ jQuery(document).ready(function($) {
             'id' :button.attr('data-post-id')
 
         };
+        button.addClass( 'loading');
         jQuery.post("/wp-admin/admin-ajax.php", data, function (response) {
-            //alert('Got this from the server: ' + response);
+            button.removeClass('loading');
+            button.removeClass('pinned');
+            button.addClass('notpinned');
         });
         return false;
     });
