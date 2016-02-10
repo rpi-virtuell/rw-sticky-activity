@@ -42,10 +42,13 @@ class RW_Sticky_Activity_Widget extends WP_Widget
                     'compare' => '='
                 )
             );
-
+            if ( function_exists( 'bb_bp_activity_url_filter' ) ) {
+                // deactivate BuddyBoss Wall activity url preview
+                remove_action('bp_get_activity_content_body', 'bb_bp_activity_url_filter');
+            }
             if ( bp_has_activities( array( 'meta_query' => $meta_query_args) ) ) : ?>
                 <?php while ( bp_activities() ) : bp_the_activity(); ?>
-                    <div id="buddypress">
+                    <div class="buddypress-sa">
                         <div id="factivity-stream">
                             <div class="activity-list">
                                 <div class="activity-content" style="margin-left: 0px;">
@@ -73,7 +76,10 @@ class RW_Sticky_Activity_Widget extends WP_Widget
                     </div>
                 <?php endwhile; ?>
             <?php endif;
-
+            if ( function_exists( 'bb_bp_activity_url_filter' ) ) {
+                // activate BuddyBoss Wall activity url preview
+                add_action('bp_get_activity_content_body', 'bb_bp_activity_url_filter');
+            }
             echo $args['after_widget'];
         }
     }

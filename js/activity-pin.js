@@ -14,6 +14,8 @@ jQuery(document).ready(function($) {
             button.removeClass('loading');
             button.removeClass('notpinned');
             button.addClass('pinned');
+            $("div.buddypress-sa").remove();
+            $("aside.widget_sticky_acivity div.inner").append( response );
         });
         return false;
     });
@@ -31,6 +33,8 @@ jQuery(document).ready(function($) {
             button.removeClass('loading');
             button.removeClass('pinned');
             button.addClass('notpinned');
+            $("div.buddypress-sa").remove();
+            $("aside.widget_sticky_acivity div.inner").append( response );
         });
         return false;
     });

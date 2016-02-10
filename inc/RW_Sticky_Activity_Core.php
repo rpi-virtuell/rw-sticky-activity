@@ -43,6 +43,54 @@ class RW_Sticky_Activity_Core {
             bp_activity_update_meta( $activityID, 'rw_sticky_activity', 1);
 
         }
+
+        $meta_query_args = array(
+        'relation' => 'AND', // Optional, defaults to "AND"
+        array(
+        'key'     => 'rw_sticky_activity',
+        'value'   => '1',
+        'compare' => '='
+        )
+        );
+        if ( function_exists( 'bb_bp_activity_url_filter' ) ) {
+        // deactivate BuddyBoss Wall activity url preview
+        remove_action('bp_get_activity_content_body', 'bb_bp_activity_url_filter');
+        }
+        if ( bp_has_activities( array( 'meta_query' => $meta_query_args) ) ) : ?>
+        <?php while ( bp_activities() ) : bp_the_activity(); ?>
+            <div class="buddypress-sa">
+                <div id="factivity-stream">
+                    <div class="activity-list">
+                        <div class="activity-content" style="margin-left: 0px;">
+                            <?php if ( bp_activity_has_content() ) : ?>
+                                <div class="activity-inner">
+                                    <?php bp_activity_content_body(); ?>
+                                </div>
+                            <?php endif; ?>
+                            <div class="activity-header">
+                                <?php
+                                $userid = bp_get_activity_user_id();
+                                $user = get_user_by( 'id', $userid);
+                                echo "(" . $user->nickname . ")";
+                                ?>
+                            </div>
+                            <?php
+                            $nonce = wp_create_nonce( 'pin-activity-nonce' );
+                            $title = __('Unpin activity', RW_Sticky_Activity::$textdomain);
+                            $class = "sa-button-unpin  pinned";
+                            ?>
+                            <a href="" class="fa fa-map-marker icon-button sa-button <?php echo $class; ?>" title="<?php echo $title; ?>" data-post-nonces="<?php echo $nonce; ?>" data-post-id="<?php echo bp_get_activity_id(); ?>"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <?php endwhile; ?>
+        <?php endif;
+        if ( function_exists( 'bb_bp_activity_url_filter' ) ) {
+            // activate BuddyBoss Wall activity url preview
+            add_action('bp_get_activity_content_body', 'bb_bp_activity_url_filter');
+        }
+
         wp_die();
     }
 
@@ -59,6 +107,53 @@ class RW_Sticky_Activity_Core {
             bp_activity_update_meta( $activityID, 'rw_sticky_activity', 0);
 
         }
+        $meta_query_args = array(
+            'relation' => 'AND', // Optional, defaults to "AND"
+            array(
+                'key'     => 'rw_sticky_activity',
+                'value'   => '1',
+                'compare' => '='
+            )
+        );
+        if ( function_exists( 'bb_bp_activity_url_filter' ) ) {
+            // deactivate BuddyBoss Wall activity url preview
+            remove_action('bp_get_activity_content_body', 'bb_bp_activity_url_filter');
+        }
+        if ( bp_has_activities( array( 'meta_query' => $meta_query_args) ) ) : ?>
+            <?php while ( bp_activities() ) : bp_the_activity(); ?>
+                <div class="buddypress-sa">
+                    <div id="factivity-stream">
+                        <div class="activity-list">
+                            <div class="activity-content" style="margin-left: 0px;">
+                                <?php if ( bp_activity_has_content() ) : ?>
+                                    <div class="activity-inner">
+                                        <?php bp_activity_content_body(); ?>
+                                    </div>
+                                <?php endif; ?>
+                                <div class="activity-header">
+                                    <?php
+                                    $userid = bp_get_activity_user_id();
+                                    $user = get_user_by( 'id', $userid);
+                                    echo "(" . $user->nickname . ")";
+                                    ?>
+                                </div>
+                                <?php
+                                $nonce = wp_create_nonce( 'pin-activity-nonce' );
+                                $title = __('Unpin activity', RW_Sticky_Activity::$textdomain);
+                                $class = "sa-button-unpin  pinned";
+                                ?>
+                                <a href="" class="fa fa-map-marker icon-button sa-button <?php echo $class; ?>" title="<?php echo $title; ?>" data-post-nonces="<?php echo $nonce; ?>" data-post-id="<?php echo bp_get_activity_id(); ?>"></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <?php endwhile; ?>
+        <?php endif;
+        if ( function_exists( 'bb_bp_activity_url_filter' ) ) {
+            // activate BuddyBoss Wall activity url preview
+            add_action('bp_get_activity_content_body', 'bb_bp_activity_url_filter');
+        }
+
         wp_die();
     }
 
