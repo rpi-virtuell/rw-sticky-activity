@@ -27,5 +27,7 @@ a.pinned:hover {
     margin-bottom: 10px;
 }
 
-
-
+.widget_sticky_acivity .activity-header {
+    float: right;
+    margin-top: -6px;
+}
