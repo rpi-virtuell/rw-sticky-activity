@@ -53,7 +53,13 @@ class RW_Sticky_Activity_Widget extends WP_Widget
                         <div id="factivity-stream">
                             <div class="activity-list">
                                 <div class="activity-content" style="margin-left: 0px;">
-                                    <?php if ( bp_activity_has_content() ) : ?>
+                                    <?php
+                                    $nonce = wp_create_nonce( 'pin-activity-nonce' );
+                                    $title = __('Unpin activity', RW_Sticky_Activity::$textdomain);
+                                    $class = "sa-button-unpin  pinned";
+                                    ?>
+                                    <a href="" class="fa fa-map-marker icon-button sa-button <?php echo $class; ?>" title="<?php echo $title; ?>" data-post-nonces="<?php echo $nonce; ?>" data-post-id="<?php echo bp_get_activity_id(); ?>"></a>
+									<?php if ( bp_activity_has_content() ) : ?>
                                         <div class="activity-inner">
                                             <?php bp_activity_content_body(); ?>
                                         </div>
@@ -65,13 +71,8 @@ class RW_Sticky_Activity_Widget extends WP_Widget
                                         echo "(" . $user->nickname . ")";
                                         ?>
                                     </div>
-                                    <?php
-                                    $nonce = wp_create_nonce( 'pin-activity-nonce' );
-                                    $title = __('Unpin activity', RW_Sticky_Activity::$textdomain);
-                                    $class = "sa-button-unpin  pinned";
-                                    ?>
-                                    <a href="" class="fa fa-map-marker icon-button sa-button <?php echo $class; ?>" title="<?php echo $title; ?>" data-post-nonces="<?php echo $nonce; ?>" data-post-id="<?php echo bp_get_activity_id(); ?>"></a>
-                                </div>
+									<div class="clearfix"></div>
+								</div>
                             </div>
                         </div>
                     </div>

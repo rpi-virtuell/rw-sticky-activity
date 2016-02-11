@@ -1,4 +1,3 @@
-
 a.notpinned {
     color: #cecece;
     background-color: transparent !important;
@@ -29,5 +28,12 @@ a.pinned:hover {
 
 .widget_sticky_acivity .activity-header {
     float: right;
-    margin-top: -6px;
+    margin-top: -15px;
+}
+
+.widget_sticky_acivity .pinned {
+    float: left;
+    font-size: 50px;
+    margin-left: -3px;
+    margin-right: 5px;
 }
