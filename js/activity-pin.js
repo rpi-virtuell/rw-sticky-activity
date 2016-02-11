@@ -16,6 +16,7 @@ jQuery(document).ready(function($) {
             button.addClass('pinned');
             $("div.buddypress-sa").remove();
             $("aside.widget_sticky_acivity div.inner").append( response );
+            $("div#group-description div.widget_sticky_acivity").append( response );
         });
         return false;
     });
@@ -35,6 +36,7 @@ jQuery(document).ready(function($) {
             button.addClass('notpinned');
             $("div.buddypress-sa").remove();
             $("aside.widget_sticky_acivity div.inner").append( response );
+            $("div#group-description div.widget_sticky_acivity").append( response );
         });
         return false;
     });
