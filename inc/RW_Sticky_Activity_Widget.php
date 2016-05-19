@@ -69,14 +69,14 @@ class RW_Sticky_Activity_Widget extends WP_Widget
                                     <?php
                                     if ( bp_get_activity_type() == 'bp_doc_edited' ) {
                                         ?>
-                                        <div class="activity-inner">
+                                        <div class="activity-inner"><p>
                                             <?php
                                             $doc = get_post ( url_to_postid( bp_get_activity_feed_item_link() ) );
                                             echo __('Doc: ', RW_Sticky_Activity::$textdomain);
                                             echo "<a href='".get_permalink( $doc->ID ). "'>'";
                                             echo $doc->post_title;
                                             echo "</a>";
-                                            ?>
+                                            ?></p>
                                         </div>
                                         <?php
                                     }
@@ -85,17 +85,17 @@ class RW_Sticky_Activity_Widget extends WP_Widget
                                     if ( bp_get_activity_type() == 'bbp_topic_create' ) {
                                         // url_to_postid fails on permalinks like http://gruppen.domain.tld/groups/frank-testgruppe/forum/topic/neues-thema/ !!!
                                         ?>
-                                        <div class="activity-inner">
+                                        <div class="activity-inner"><p>
                                             <?php
                                             $link = bp_get_activity_feed_item_link();
                                             $guid =  substr( $link, strpos( $link, "/forum/topic" ) + 6 );
                                             $topicid = $wpdb->get_var( $wpdb->prepare( "SELECT ID FROM $wpdb->posts WHERE guid like '%%%s%%'", $guid ) );
                                             $topic = get_post ( $topicid );
                                             echo __('Forum new topic: ', RW_Sticky_Activity::$textdomain);
-                                            echo "<a href='".get_permalink( $topic->ID ). "'>'";
+                                            echo "<a href='".get_permalink( $topic->ID ). "'> ";
                                             echo $topic->post_title;
-                                            echo "</a>";
-                                            ?>
+                                            echo "</a><br>";
+                                            ?></p>
                                         </div>
                                         <?php
                                     }
