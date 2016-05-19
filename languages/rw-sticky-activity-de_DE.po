@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: RW Sticky Activity\n"
-"POT-Creation-Date: 2016-05-19 12:40+0200\n"
-"PO-Revision-Date: 2016-05-19 12:41+0200\n"
+"POT-Creation-Date: 2016-05-19 16:01+0200\n"
+"PO-Revision-Date: 2016-05-19 16:01+0200\n"
 "Last-Translator: Frank Staude <frank@staude.net>\n"
 "Language-Team: \n"
 "Language: de_DE\n"
@@ -25,7 +25,7 @@ msgid "Pin activity"
 msgstr "Aktivität anpinnen"
 
 #: inc/RW_Sticky_Activity_Core.php:23 inc/RW_Sticky_Activity_Core.php:68
-#: inc/RW_Sticky_Activity_Core.php:133 inc/RW_Sticky_Activity_Widget.php:58
+#: inc/RW_Sticky_Activity_Core.php:133 inc/RW_Sticky_Activity_Widget.php:60
 msgid "Unpin activity"
 msgstr "Aktivität loslösen"
 
@@ -54,11 +54,15 @@ msgstr "Dieses Plugin benötigt BuddyPress um zu arbeiten."
 msgid "List sticky activity in current buddypress group"
 msgstr "Listet „oben gehaltene“ Aktivitäten innerhalb der BuddyPress Gruppe"
 
-#: inc/RW_Sticky_Activity_Widget.php:74
+#: inc/RW_Sticky_Activity_Widget.php:75
 msgid "Doc: "
 msgstr "Artikel: "
 
-#: inc/RW_Sticky_Activity_Widget.php:117
+#: inc/RW_Sticky_Activity_Widget.php:94
+msgid "Forum new topic: "
+msgstr "Neues Thema im Forum:"
+
+#: inc/RW_Sticky_Activity_Widget.php:140
 msgid "Title:"
 msgstr "Titel:"
 

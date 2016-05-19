@@ -28,6 +28,8 @@ class RW_Sticky_Activity_Widget extends WP_Widget
      * @param   array $instance
      */
     public function widget( $args, $instance ) {
+        global $wpdb;
+
         // outputs the content of the widget
         if ( bp_is_group() ) {
             echo $args['before_widget'];
@@ -59,7 +61,7 @@ class RW_Sticky_Activity_Widget extends WP_Widget
                                     $class = "sa-button-unpin  pinned";
                                     ?>
                                     <a href="" class="fa fa-map-marker icon-button sa-button <?php echo $class; ?>" title="<?php echo $title; ?>" data-post-nonces="<?php echo $nonce; ?>" data-post-id="<?php echo bp_get_activity_id(); ?>"></a>
-									<?php if ( bp_activity_has_content() ) : ?>
+									<?php if ( bp_activity_has_content() && bp_get_activity_type() != 'bbp_topic_create' ) : ?>
                                         <div class="activity-inner">
                                             <?php bp_activity_content_body(); ?>
                                         </div>
@@ -68,9 +70,8 @@ class RW_Sticky_Activity_Widget extends WP_Widget
                                     if ( bp_get_activity_type() == 'bp_doc_edited' ) {
                                         ?>
                                         <div class="activity-inner">
-                                            <?php bp_activity_content_body();
+                                            <?php
                                             $doc = get_post ( url_to_postid( bp_get_activity_feed_item_link() ) );
-
                                             echo __('Doc: ', RW_Sticky_Activity::$textdomain);
                                             echo "<a href='".get_permalink( $doc->ID ). "'>'";
                                             echo $doc->post_title;
@@ -79,6 +80,28 @@ class RW_Sticky_Activity_Widget extends WP_Widget
                                         </div>
                                         <?php
                                     }
+
+                                    // New forum topic created
+                                    if ( bp_get_activity_type() == 'bbp_topic_create' ) {
+                                        // url_to_postid fails on permalinks like http://gruppen.domain.tld/groups/frank-testgruppe/forum/topic/neues-thema/ !!!
+                                        ?>
+                                        <div class="activity-inner">
+                                            <?php
+                                            $link = bp_get_activity_feed_item_link();
+                                            $guid =  substr( $link, strpos( $link, "/forum/topic" ) + 6 );
+                                            $topicid = $wpdb->get_var( $wpdb->prepare( "SELECT ID FROM $wpdb->posts WHERE guid like '%%%s%%'", $guid ) );
+                                            $topic = get_post ( $topicid );
+                                            echo __('Forum new topic: ', RW_Sticky_Activity::$textdomain);
+                                            echo "<a href='".get_permalink( $topic->ID ). "'>'";
+                                            echo $topic->post_title;
+                                            echo "</a>";
+                                            ?>
+                                        </div>
+                                        <?php
+                                    }
+
+
+
 
                                     ?>
                                     <div class="activity-header">

@@ -46,6 +46,9 @@ Answer
 = 0.0.7
 * added DOC link to widget
 * added DOC translation
+* added Forum topic to widget
+* added Forum topic to translation
+
 
 = 0.0.6 =
 * added jquery for sticky activitys via widget shortcode
