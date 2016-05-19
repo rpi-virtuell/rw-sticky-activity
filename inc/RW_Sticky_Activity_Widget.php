@@ -61,7 +61,7 @@ class RW_Sticky_Activity_Widget extends WP_Widget
                                     $class = "sa-button-unpin  pinned";
                                     ?>
                                     <a href="" class="fa fa-map-marker icon-button sa-button <?php echo $class; ?>" title="<?php echo $title; ?>" data-post-nonces="<?php echo $nonce; ?>" data-post-id="<?php echo bp_get_activity_id(); ?>"></a>
-									<?php if ( bp_activity_has_content() && bp_get_activity_type() != 'bbp_topic_create' ) : ?>
+									<?php if ( bp_activity_has_content() && bp_get_activity_type() != 'bbp_topic_create' && bp_get_activity_type() != 'bbp_reply_create' ) : ?>
                                         <div class="activity-inner">
                                             <?php bp_activity_content_body(); ?>
                                         </div>
@@ -101,6 +101,24 @@ class RW_Sticky_Activity_Widget extends WP_Widget
                                     }
 
 
+                                    // New forum reply
+                                    if ( bp_get_activity_type() == 'bbp_reply_create' ) {
+                                        // url_to_postid fails on permalinks like http://gruppen.domain.tld/groups/frank-testgruppe/forum/topic/neues-thema/ !!!
+                                        ?>
+                                        <div class="activity-inner"><p>
+                                                <?php
+                                                $link = bp_get_activity_feed_item_link();
+                                                $id =  substr( $link, strpos( $link, "/#post-" ) + 7 );
+                                                $topic = get_post ( $id );
+                                                echo __('Forum reply: ', RW_Sticky_Activity::$textdomain);
+                                                echo "<a href='".get_permalink( $topic->ID ). "'> ";
+                                                $parent = get_post( $topic->post_parent );
+                                                echo $parent->post_title;
+                                                echo "</a><br>";
+                                                ?></p>
+                                        </div>
+                                        <?php
+                                    }
 
 
                                     ?>

@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: RW Sticky Activity\n"
-"POT-Creation-Date: 2016-05-19 16:01+0200\n"
-"PO-Revision-Date: 2016-05-19 16:01+0200\n"
+"POT-Creation-Date: 2016-05-19 16:50+0200\n"
+"PO-Revision-Date: 2016-05-19 16:51+0200\n"
 "Last-Translator: Frank Staude <frank@staude.net>\n"
 "Language-Team: \n"
 "Language: de_DE\n"
@@ -62,7 +62,11 @@ msgstr "Artikel: "
 msgid "Forum new topic: "
 msgstr "Neues Thema im Forum:"
 
-#: inc/RW_Sticky_Activity_Widget.php:140
+#: inc/RW_Sticky_Activity_Widget.php:113
+msgid "Forum reply: "
+msgstr "Forum-Antwort:"
+
+#: inc/RW_Sticky_Activity_Widget.php:158
 msgid "Title:"
 msgstr "Titel:"
 

@@ -48,7 +48,8 @@ Answer
 * added DOC translation
 * added Forum topic to widget
 * added Forum topic to translation
-
+* added Forum reply to widget
+* added Forum reply to translation
 
 = 0.0.6 =
 * added jquery for sticky activitys via widget shortcode
