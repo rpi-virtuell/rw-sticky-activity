@@ -64,6 +64,23 @@ class RW_Sticky_Activity_Widget extends WP_Widget
                                             <?php bp_activity_content_body(); ?>
                                         </div>
                                     <?php endif; ?>
+                                    <?php
+                                    if ( bp_get_activity_type() == 'bp_doc_edited' ) {
+                                        ?>
+                                        <div class="activity-inner">
+                                            <?php bp_activity_content_body();
+                                            $doc = get_post ( url_to_postid( bp_get_activity_feed_item_link() ) );
+
+                                            echo __('Doc: ', RW_Sticky_Activity::$textdomain);
+                                            echo "<a href='".get_permalink( $doc->ID ). "'>'";
+                                            echo $doc->post_title;
+                                            echo "</a>";
+                                            ?>
+                                        </div>
+                                        <?php
+                                    }
+
+                                    ?>
                                     <div class="activity-header">
                                         <?php
                                         $userid = bp_get_activity_user_id();

@@ -3,7 +3,7 @@ Contributors: f.staude
 Tags:
 Requires at least: 4.0
 Tested up to: 4.4
-Stable tag: 0.0.6
+Stable tag: 0.0.7
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -42,6 +42,10 @@ Answer
 
 
 == Changelog ==
+
+= 0.0.7
+* added DOC link to widget
+* added DOC translation
 
 = 0.0.6 =
 * added jquery for sticky activitys via widget shortcode
