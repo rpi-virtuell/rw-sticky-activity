@@ -50,6 +50,8 @@ Answer
 * added Forum topic to translation
 * added Forum reply to widget
 * added Forum reply to translation
+* remove widget
+* added sticky list to top of group activity list via bp_before_activity_post_form hook
 
 = 0.0.6 =
 * added jquery for sticky activitys via widget shortcode

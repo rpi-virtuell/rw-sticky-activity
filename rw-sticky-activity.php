@@ -112,15 +112,12 @@ class RW_Sticky_Activity {
         $this->load_plugin_textdomain();
 
         // Add Filter & Actions
-        add_action( 'widgets_init', function() {
-            register_widget( 'RW_Sticky_Activity_Widget' );
-        } );
         add_action( 'bp_activity_entry_meta',   array( 'RW_Sticky_Activity_Core', 'add_sticky_icon') );
         add_action( 'wp_enqueue_scripts',       array( 'RW_Sticky_Activity_Core','enqueue_style' ) );
         add_action('init',                      array( 'RW_Sticky_Activity_Core','register_script' ) );
         add_action( 'wp_ajax_pin_activity',     array( 'RW_Sticky_Activity_Core','pin_activity' ) );
         add_action( 'wp_ajax_unpin_activity',   array( 'RW_Sticky_Activity_Core','unpin_activity' ) );
-
+        add_action( 'bp_before_activity_post_form',   array( 'RW_Sticky_Activity_Core','bp_before_activity_post_form' ) );
         do_action( 'rw_sticky_activity_init' );
     }
 
