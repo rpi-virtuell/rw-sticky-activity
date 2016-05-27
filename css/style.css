@@ -27,13 +27,39 @@ a.pinned:hover {
 }
 
 .widget_sticky_acivity .activity-header {
-    float: right;
-    margin-top: -15px;
+    margin-top: -8px;
+	margin-left: 8px;
 }
 
 .widget_sticky_acivity .pinned {
-    float: left;
-    font-size: 50px;
-    margin-left: 0px;
+    float: right;
+	margin-left: 3px;
+	/*
+	font-size: 50px;
+    
     margin-right: 5px;
+	*/
+}
+#buddypress form#whats-new-form p.activity-greeting{
+	clear: both;
+}
+
+.widget_sticky_acivity {
+    margin-top: -42px;
+}
+
+.widget_sticky_acivity .activity-content {
+    float: left;
+    min-width: 350px;
+    width: 49.5%;
+}
+
+.widget_sticky_acivity .activity-content .activity-inner{
+	margin: 0 3px 3px 7px !important;
+	background: #ffffff none repeat scroll 0 0;
+    border-radius: 3px;
+    box-shadow: 6px 6px 10px -4px rgba(0, 0, 0, 0.75);
+    overflow: auto;
+    padding: 1.5%;
+    
 }
