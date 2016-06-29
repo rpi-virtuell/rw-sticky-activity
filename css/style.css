@@ -52,6 +52,7 @@ a.pinned:hover {
     float: left;
     min-width: 350px;
     width: 49.5%;
+    margin-top: 10px;
 }
 
 .widget_sticky_acivity .activity-content .activity-inner{

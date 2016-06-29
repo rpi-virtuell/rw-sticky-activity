@@ -36,7 +36,7 @@ class RW_Sticky_Activity_Core {
                     <div class="buddypress-sa">
                         <div id="factivity-stream">
                             <div class="activity-list">
-                                <div class="activity-content" style="margin-left: 0px;">
+                                <div class="activity-content" style="margin-left: 0px; margin-top: 10px;">
                                     <?php
                                     $nonce = wp_create_nonce( 'pin-activity-nonce' );
                                     $title = __('Unpin activity', RW_Sticky_Activity::$textdomain);
@@ -114,6 +114,7 @@ class RW_Sticky_Activity_Core {
                                     <div class="clearfix"></div>
                                 </div>
                             </div>
+                            <div class="clearfix"></div>
                         </div>
                     </div>
                 <?php endwhile; ?>

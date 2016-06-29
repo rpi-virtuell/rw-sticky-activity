@@ -3,7 +3,7 @@ Contributors: f.staude
 Tags:
 Requires at least: 4.0
 Tested up to: 4.4
-Stable tag: 0.0.7
+Stable tag: 0.0.8
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -43,7 +43,10 @@ Answer
 
 == Changelog ==
 
-= 0.0.7
+= 0.0.8 =
+* added clearfix on sticky activity
+
+= 0.0.7 =
 * added DOC link to widget
 * added DOC translation
 * added Forum topic to widget
