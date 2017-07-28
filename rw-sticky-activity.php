@@ -12,7 +12,7 @@
  * Plugin Name:       RW Sticky Activity
  * Plugin URI:        https://github.com/rpi-virtuell/rw-sticky-activity
  * Description:       A plugin to sticky an buddxpress avtivity
- * Version:           0.0.8
+ * Version:           0.0.9
  * Author:            Frank Staude
  * Author URI:        https://staude.net
  * License:           GNU General Public License v2
@@ -34,7 +34,7 @@ class RW_Sticky_Activity {
      * @since   0.0.1
      * @access  public
      */
-    static public $version = "0.0.8";
+    static public $version = "0.0.9";
 
     /**
      * Singleton object holder

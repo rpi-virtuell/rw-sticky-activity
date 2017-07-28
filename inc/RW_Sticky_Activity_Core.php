@@ -10,7 +10,7 @@
 class RW_Sticky_Activity_Core {
 
 
-    function bp_before_activity_post_form() {
+    public static function bp_before_activity_post_form() {
         global $wpdb;
 
         // outputs the content of the widget
@@ -131,7 +131,7 @@ class RW_Sticky_Activity_Core {
     /**
      *
      */
-    function add_sticky_icon() {
+    public static function add_sticky_icon() {
         if ( bp_is_group() ) {
           if ( bp_group_is_admin() ) {
                 $nonce = wp_create_nonce( 'pin-activity-nonce' );
@@ -153,7 +153,7 @@ class RW_Sticky_Activity_Core {
      *
      *
      */
-    function pin_activity() {
+    public static function pin_activity() {
         global $wpdb;
         $nonce = isset( $_REQUEST['nonces'] ) ? sanitize_text_field( $_REQUEST['nonces'] ) : 0;
         if ( !wp_verify_nonce( $nonce, 'pin-activity-nonce' ) ) {
@@ -276,7 +276,7 @@ class RW_Sticky_Activity_Core {
     /**
      *
      */
-    function unpin_activity() {
+    public static function unpin_activity() {
         global $wpdb;
         $nonce = isset( $_REQUEST['nonces'] ) ? sanitize_text_field( $_REQUEST['nonces'] ) : 0;
         if ( !wp_verify_nonce( $nonce, 'pin-activity-nonce' ) ) {
@@ -399,7 +399,7 @@ class RW_Sticky_Activity_Core {
     /**
      *
      */
-    function register_script() {
+    public static function register_script() {
         wp_register_style( 'rw_sticky_activity_css', plugins_url('/css/style.css', RW_Sticky_Activity::$plugin_base_name ), false, RW_Sticky_Activity::$plugin_version, 'all');
         wp_register_script( 'activity-pin', plugins_url('/js/activity-pin.js', RW_Sticky_Activity::$plugin_base_name ) );
     }
@@ -407,7 +407,7 @@ class RW_Sticky_Activity_Core {
     /**
      *
      */
-    function enqueue_style() {
+    public static function enqueue_style() {
         wp_enqueue_style( 'rw_sticky_activity_css' );
         wp_enqueue_script( 'activity-pin');
     }

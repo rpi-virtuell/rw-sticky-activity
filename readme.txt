@@ -2,8 +2,8 @@
 Contributors: f.staude
 Tags:
 Requires at least: 4.0
-Tested up to: 4.4
-Stable tag: 0.0.8
+Tested up to: 4.8
+Stable tag: 0.0.9
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -42,6 +42,9 @@ Answer
 
 
 == Changelog ==
+
+= 0.0.9 =
+* fix Non-static method 
 
 = 0.0.8 =
 * added clearfix on sticky activity
